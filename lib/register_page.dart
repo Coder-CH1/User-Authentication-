@@ -29,9 +29,9 @@ class _RegisterPageState extends State<RegisterPage> {
              height: 10,
             ),
             SizedBox(
-              width: 300,
+              width: 350,
               child: Padding(
-                padding: const EdgeInsets.only(left: 20),
+                padding: const EdgeInsets.only(left: 20, right: 20),
                 child: TextField(
                   keyboardType: TextInputType.name,
                   maxLength: 20,
@@ -62,9 +62,9 @@ class _RegisterPageState extends State<RegisterPage> {
               height: 10,
             ),
             SizedBox(
-              width: 300,
+              width: 350,
               child: Padding(
-                padding: const EdgeInsets.only(left: 20),
+                padding: const EdgeInsets.only(left: 20, right: 20),
                 child: TextField(
                   keyboardType: TextInputType.emailAddress,
                   maxLength: 20,
@@ -95,9 +95,9 @@ class _RegisterPageState extends State<RegisterPage> {
               height: 10,
             ),
             SizedBox(
-              width: 300,
+              width: 350,
               child: Padding(
-                padding: const EdgeInsets.only(left: 20),
+                padding: const EdgeInsets.only(left: 20, right: 20),
                 child: TextField(
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: true,

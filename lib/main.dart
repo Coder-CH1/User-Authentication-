@@ -56,11 +56,11 @@ class UserAuthenticationPage extends StatelessWidget {
               TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w400,
-                color: Colors.black,
+                color: Colors.white,
               ),
               ),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.yellowAccent.shade100,
+                  backgroundColor: Colors.black,
                   minimumSize: const Size(300, 50),
                 ),
               ),
@@ -77,11 +77,11 @@ class UserAuthenticationPage extends StatelessWidget {
               TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w400,
-                color: Colors.black,
+                color: Colors.white,
               ),
               ),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.yellowAccent.shade100,
+                  backgroundColor: Colors.black,
                   minimumSize: const Size(300, 50),
                 ),
               ),
