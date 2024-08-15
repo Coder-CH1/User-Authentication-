@@ -14,16 +14,32 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
-
+  String errorMessage = '';
   void _register() async {
-    try {
-      final response = await _apiService.register(
-          _nameController.text,
-          _emailController.text,
-          _passController.text);
-      print('${response ['access_token']}');
+      final name = _nameController.text.trim();
+      final email = _emailController.text.trim();
+      final pass =  _passController.text.trim();
+      if (name.isEmpty || email.isEmpty || pass.isEmpty) {
+        setState(() {
+          errorMessage = 'All field are required';
+        });
+        return;
+      }
+      try {
+  final response = await _apiService.register(
+      name,
+      email,
+      pass
+  );
+  print('');
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text('Registration successful'))
+  );
+  Navigator.pushReplacementNamed(context, '/login');
     } catch (e) {
-      print('$e');
+      setState(() {
+        errorMessage = 'Registration failed $e';
+      });
     }
   }
   @override
@@ -147,8 +163,17 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
+            if (errorMessage.isEmpty)... [
+              SizedBox(
+                height: 20,
+              ),
+              Text(errorMessage, style: TextStyle(color: Colors.red, fontSize: 16))
+            ],
+            SizedBox(
+              height: 20,
+            ),
             Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+              padding: const EdgeInsets.only(left: 20, right: 20),
               child: ElevatedButton(
                 onPressed: () {
                   _register();
