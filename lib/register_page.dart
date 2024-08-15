@@ -14,7 +14,7 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
-        title: Text('Register page', style: TextStyle(
+        title: const Text('Register page', style: TextStyle(
           fontSize: 25,
           fontWeight: FontWeight.bold,
           color: Colors.white,
@@ -24,8 +24,8 @@ class _RegisterPageState extends State<RegisterPage> {
         padding: const EdgeInsets.only(top: 100),
         child: Column(
           children: [
-            Text('Name', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
-            SizedBox(
+            const Text('Name', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
+            const SizedBox(
              height: 10,
             ),
             SizedBox(
@@ -57,8 +57,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
-            Text('Email Address', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
-            SizedBox(
+            const Text('Email Address', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
+            const SizedBox(
               height: 10,
             ),
             SizedBox(
@@ -90,8 +90,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
-            Text('Password', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
-            SizedBox(
+            const Text('Password', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
+            const SizedBox(
               height: 10,
             ),
             SizedBox(
@@ -124,18 +124,21 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Register', style:
-            TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w400,
-              color: Colors.black,
-            ),
-            ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.yellowAccent.shade100,
-                minimumSize: const Size(300, 50),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: ElevatedButton(
+                onPressed: () {},
+                child: const Text('Register', style:
+              TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w400,
+                color: Colors.white,
+              ),
+              ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  minimumSize: const Size(400, 50),
+                ),
               ),
             ),
           ],
