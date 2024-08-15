@@ -1,7 +1,4 @@
 
-import 'dart:html';
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 
 class ApiService {
@@ -14,7 +11,7 @@ class ApiService {
   Future<Map<String, dynamic>> register(String name, String email, String password) async {
     try {
       final response = await _dio.post(
-          '',
+          '/register',
         data: {
             'name': name,
           'email': email,
@@ -31,7 +28,7 @@ class ApiService {
   Future<Map<String, dynamic>> login(String email, String password) async {
     try {
       final response = await _dio.post(
-          '',
+          '/login',
           data: {
             'email': email,
             'password': password
@@ -40,6 +37,14 @@ class ApiService {
       return response.data as Map<String, dynamic>;
     } catch (e) {
       throw Exception('');
+    }
+  }
+
+  Future<void> logout() async {
+    try {
+      await _dio.post('/logout');
+    } catch (e) {
+      throw Exception();
     }
   }
 }
