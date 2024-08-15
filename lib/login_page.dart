@@ -1,3 +1,4 @@
+import 'package:authentication/logout_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -18,6 +19,31 @@ class _LoginPageState extends State<LoginPage> {
           fontWeight: FontWeight.bold,
           color: Colors.white,
         )),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 100),
+        child: Container(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 50),
+            child: ElevatedButton(
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => LogoutPage(),
+                ),
+                );
+              }, child: const Text('Logout', style:
+            TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w400,
+              color: Colors.black,
+            ),
+            ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.yellowAccent.shade100,
+                minimumSize: const Size(300, 50),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
