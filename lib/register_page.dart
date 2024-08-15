@@ -42,9 +42,6 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Column(
           children: [
             const Text('Name', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
-            const SizedBox(
-             height: 10,
-            ),
             SizedBox(
               width: 400,
               height: 60,
@@ -77,10 +74,10 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
-            const Text('Email Address', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 20,
             ),
+            const Text('Email Address', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
             SizedBox(
               width: 400,
               height: 60,
@@ -112,6 +109,9 @@ class _RegisterPageState extends State<RegisterPage> {
                   },
                 ),
               ),
+            ),
+            SizedBox(
+              height: 20,
             ),
             const Text('Password', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
             const SizedBox(

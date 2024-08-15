@@ -26,13 +26,10 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: [
                Text('Email address', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
-               SizedBox(
-                height: 10,
-              ),
               SizedBox(
-                width: 350,
+                width: 400,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+                  padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
                   child: TextField(
                     keyboardType: TextInputType.emailAddress,
                     style: const TextStyle(
@@ -56,12 +53,15 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 20,
+              ),
               const Text('Password', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
               const SizedBox(
                 height: 10,
               ),
               SizedBox(
-                width: 350,
+                width: 400,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20),
                   child: TextField(
