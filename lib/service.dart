@@ -21,10 +21,12 @@ class ApiService {
       if (response.statusCode == 201) {
         return response.data as Map<String, dynamic>;
       } else {
-        throw Exception('Registration failed');
+        throw Exception('Registration failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      throw Exception('');
+      print('registration failed');
+      throw Exception('registration error: $e');
+
     }
 
   }
