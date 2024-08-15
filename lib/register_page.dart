@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
 
@@ -56,9 +57,6 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
-            SizedBox(
-              height: 50,
-            ),
             Text('Email Address', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
             SizedBox(
               height: 10,
@@ -92,9 +90,6 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
-            SizedBox(
-              height: 50,
-            ),
             Text('Password', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
             SizedBox(
               height: 10,
@@ -127,6 +122,20 @@ class _RegisterPageState extends State<RegisterPage> {
                   onTap: () async {
                   },
                 ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Register', style:
+            TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w400,
+              color: Colors.black,
+            ),
+            ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.yellowAccent.shade100,
+                minimumSize: const Size(300, 50),
               ),
             ),
           ],
