@@ -1,3 +1,4 @@
+import 'package:authentication/service.dart';
 import 'package:flutter/material.dart';
 
 
@@ -9,6 +10,22 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final ApiService _apiService = ApiService();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passController = TextEditingController();
+
+  void _register() async {
+    try {
+      final response = await _apiService.register(
+          _nameController.text,
+          _emailController.text,
+          _passController.text);
+      print('${response ['access_token']}');
+    } catch (e) {
+      print('$e');
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,12 +46,16 @@ class _RegisterPageState extends State<RegisterPage> {
              height: 10,
             ),
             SizedBox(
-              width: 350,
+              width: 400,
+              height: 60,
               child: Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: TextField(
+                  controller: _nameController,
                   keyboardType: TextInputType.name,
-                  maxLength: 20,
+                  maxLines: null,
+                  expands: true,
+                  minLines: null,
                   style: const TextStyle(
                     fontSize: 18,
                       color: Colors.black,
@@ -51,7 +72,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   onChanged: (value) {
                   },
-                  readOnly: true,
                   onTap: () async {
                   },
                 ),
@@ -62,12 +82,16 @@ class _RegisterPageState extends State<RegisterPage> {
               height: 10,
             ),
             SizedBox(
-              width: 350,
+              width: 400,
+              height: 60,
               child: Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: TextField(
+                  controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
-                  maxLength: 20,
+                  maxLines: null,
+                  expands: true,
+                  minLines: null,
                   style: const TextStyle(
                     fontSize: 18,
                     color: Colors.black,
@@ -84,7 +108,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   onChanged: (value) {
                   },
-                  readOnly: true,
                   onTap: () async {
                   },
                 ),
@@ -95,13 +118,14 @@ class _RegisterPageState extends State<RegisterPage> {
               height: 10,
             ),
             SizedBox(
-              width: 350,
+              width: 400,
+              height: 60,
               child: Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: TextField(
+                  controller: _passController,
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: true,
-                  maxLength: 20,
                   style: const TextStyle(
                     fontSize: 18,
                     color: Colors.black,
@@ -118,16 +142,17 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   onChanged: (value) {
                   },
-                  readOnly: true,
                   onTap: () async {
                   },
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20),
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  _register();
+                },
                 child: const Text('Register', style:
               TextStyle(
                 fontSize: 20,

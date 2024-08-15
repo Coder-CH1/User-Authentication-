@@ -25,17 +25,16 @@ class _LoginPageState extends State<LoginPage> {
           padding: const EdgeInsets.only(top: 100),
           child: Column(
             children: [
-              const Text('Email address', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
-              const SizedBox(
+               Text('Email address', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
+               SizedBox(
                 height: 10,
               ),
               SizedBox(
                 width: 350,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
                   child: TextField(
                     keyboardType: TextInputType.emailAddress,
-                    maxLength: 20,
                     style: const TextStyle(
                       fontSize: 18,
                       color: Colors.black,
@@ -52,7 +51,6 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     onChanged: (value) {
                     },
-                    readOnly: true,
                     onTap: () async {
                     },
                   ),
