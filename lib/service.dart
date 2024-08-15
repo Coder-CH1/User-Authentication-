@@ -18,7 +18,11 @@ class ApiService {
           'password': password
         }
           );
-      return response.data as Map<String, dynamic>;
+      if (response.statusCode == 201) {
+        return response.data as Map<String, dynamic>;
+      } else {
+        throw Exception('Registration failed');
+      }
     } catch (e) {
       throw Exception('');
     }
@@ -34,7 +38,11 @@ class ApiService {
             'password': password
           }
       );
-      return response.data as Map<String, dynamic>;
+      if (response.statusCode == 201) {
+        return response.data as Map<String, dynamic>;
+      } else {
+        throw Exception('Registration failed');
+      }
     } catch (e) {
       throw Exception('');
     }
