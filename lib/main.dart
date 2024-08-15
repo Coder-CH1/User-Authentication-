@@ -29,44 +29,55 @@ class UserAuthenticationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          ElevatedButton(
-            onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterPage(),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 300),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 50),
+              child: ElevatedButton(
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterPage(),
+                  ),
+                  );
+                }, child: const Text('Register', style:
+              TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w400,
+                color: Colors.black,
               ),
-              );
-            }, child: const Text('Register', style:
-          TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w400,
-            color: Colors.black,
-          ),
-          ),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.yellowAccent.shade100,
-              minimumSize: const Size(300, 50),
-            ),
-          ),
-
-          ElevatedButton(
-            onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage(),
               ),
-              );
-            }, child: const Text('Login', style:
-          TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w400,
-            color: Colors.black,
-          ),
-          ),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.yellowAccent.shade100,
-              minimumSize: const Size(300, 50),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.yellowAccent.shade100,
+                  minimumSize: const Size(300, 50),
+                ),
+              ),
             ),
-          ),
-        ],
+        SizedBox(
+          height: 50,
+        ),
+            Padding(
+              padding: const EdgeInsets.only(left: 50),
+              child: ElevatedButton(
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage(),
+                  ),
+                  );
+                }, child: const Text('Login', style:
+              TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w400,
+                color: Colors.black,
+              ),
+              ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.yellowAccent.shade100,
+                  minimumSize: const Size(300, 50),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
