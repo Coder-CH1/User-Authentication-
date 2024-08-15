@@ -28,7 +28,18 @@ class ApiService {
 
   }
 
-  // Future<Map<String, dynamic>> login(String email, String password) async {
-  //   return;
-  // }
+  Future<Map<String, dynamic>> login(String email, String password) async {
+    try {
+      final response = await _dio.post(
+          '',
+          data: {
+            'email': email,
+            'password': password
+          }
+      );
+      return response.data as Map<String, dynamic>;
+    } catch (e) {
+      throw Exception('');
+    }
+  }
 }
