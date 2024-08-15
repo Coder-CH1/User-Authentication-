@@ -30,7 +30,14 @@ class _LoginPageState extends State<LoginPage> {
                 width: 400,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-                  child: TextField(
+                  child: TextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Password is required';
+                      }
+                      return null;
+                    },
+                   // onSaved: (value) => _passController.text = value!,
                     keyboardType: TextInputType.emailAddress,
                     style: const TextStyle(
                       fontSize: 18,
@@ -64,7 +71,14 @@ class _LoginPageState extends State<LoginPage> {
                 width: 400,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20),
-                  child: TextField(
+                  child: TextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Password is required';
+                      }
+                      return null;
+                    },
+                   // onSaved: (value) => _passController.text = value!,
                     keyboardType: TextInputType.visiblePassword,
                     maxLength: 20,
                     style: const TextStyle(

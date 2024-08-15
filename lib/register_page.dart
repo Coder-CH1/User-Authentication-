@@ -63,7 +63,14 @@ class _RegisterPageState extends State<RegisterPage> {
               height: 60,
               child: Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
-                child: TextField(
+                child: TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Name is required';
+                    }
+                    return null;
+                  },
+                  onSaved: (value) => _passController.text = value!,
                   controller: _nameController,
                   keyboardType: TextInputType.name,
                   maxLines: null,
@@ -99,7 +106,14 @@ class _RegisterPageState extends State<RegisterPage> {
               height: 60,
               child: Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
-                child: TextField(
+                child: TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Email address is required';
+                    }
+                    return null;
+                  },
+                  onSaved: (value) => _passController.text = value!,
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                   maxLines: null,
@@ -138,7 +152,14 @@ class _RegisterPageState extends State<RegisterPage> {
               height: 60,
               child: Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
-                child: TextField(
+                child: TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Password is required';
+                    }
+                    return null;
+                  },
+                  onSaved: (value) => _passController.text = value!,
                   controller: _passController,
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: true,
@@ -163,12 +184,12 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
-            if (errorMessage.isEmpty)... [
-              SizedBox(
-                height: 20,
-              ),
-              Text(errorMessage, style: TextStyle(color: Colors.red, fontSize: 16))
-            ],
+            // if (errorMessage.isEmpty)... [
+            //   SizedBox(
+            //     height: 20,
+            //   ),
+            //   Text(errorMessage, style: TextStyle(color: Colors.red, fontSize: 16))
+            // ],
             SizedBox(
               height: 20,
             ),
