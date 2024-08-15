@@ -54,7 +54,7 @@ class ApiService {
     try {
       await _dio.post('/logout');
     } catch (e) {
-      throw Exception();
+      throw Exception('Logout failed $e');
     }
   }
 }

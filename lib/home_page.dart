@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'logout_page.dart';
+import 'service.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -9,6 +9,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final ApiService _apiService = ApiService();
+
+  void _logout(BuildContext context) async {
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,10 +30,8 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.only(left: 20, right: 20),
           child: ElevatedButton(
             onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const LogoutPage(),
-              ),
-              );
-            }, child: const Text('Logout', style:
+            },
+            child: const Text('Logout', style:
           TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w400,
