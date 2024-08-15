@@ -14,11 +14,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: UserAuthenticationPage(),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => UserAuthenticationPage(),
+          '/register': (context) => RegisterPage(),
+          '/login': (context) => LoginPage(),
+        },
     );
   }
 }
@@ -29,6 +35,14 @@ class UserAuthenticationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black87,
+        title: Text('User Authentication', style: TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        )),
+      ),
       body: Padding(
         padding: const EdgeInsets.only(top: 300),
         child: Column(
@@ -36,10 +50,8 @@ class UserAuthenticationPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 50),
               child: ElevatedButton(
-                onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterPage(),
-                  ),
-                  );
+                onPressed: () {
+                  Navigator.pushNamed(context, '/register');
                 }, child: const Text('Register', style:
               TextStyle(
                 fontSize: 20,
@@ -59,10 +71,8 @@ class UserAuthenticationPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 50),
               child: ElevatedButton(
-                onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage(),
-                  ),
-                  );
+                onPressed: () {
+                  Navigator.pushNamed(context, '/login');
                 }, child: const Text('Login', style:
               TextStyle(
                 fontSize: 20,
