@@ -184,12 +184,6 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
-            // if (errorMessage.isEmpty)... [
-            //   SizedBox(
-            //     height: 20,
-            //   ),
-            //   Text(errorMessage, style: TextStyle(color: Colors.red, fontSize: 16))
-            // ],
             SizedBox(
               height: 20,
             ),

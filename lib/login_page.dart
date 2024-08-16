@@ -37,7 +37,6 @@ class _LoginPageState extends State<LoginPage> {
                       }
                       return null;
                     },
-                   // onSaved: (value) => _passController.text = value!,
                     keyboardType: TextInputType.emailAddress,
                     style: const TextStyle(
                       fontSize: 18,
@@ -78,7 +77,6 @@ class _LoginPageState extends State<LoginPage> {
                       }
                       return null;
                     },
-                   // onSaved: (value) => _passController.text = value!,
                     keyboardType: TextInputType.visiblePassword,
                     maxLength: 20,
                     style: const TextStyle(
@@ -123,7 +121,6 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                 ),
                  ),
-              //),
             ],
           ),
         )
