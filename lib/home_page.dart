@@ -23,7 +23,8 @@ class _HomePageState extends State<HomePage> {
           fontSize: 25,
           fontWeight: FontWeight.bold,
           color: Colors.white,
-        )),
+        )
+        ),
       ),
       body: Center(
         child: Padding(

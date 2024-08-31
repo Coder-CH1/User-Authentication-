@@ -51,7 +51,14 @@ class _RegisterPageState extends State<RegisterPage> {
           fontSize: 25,
           fontWeight: FontWeight.bold,
           color: Colors.white,
-        )),
+        ),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 100),

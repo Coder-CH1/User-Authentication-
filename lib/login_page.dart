@@ -18,7 +18,14 @@ class _LoginPageState extends State<LoginPage> {
           fontSize: 25,
           fontWeight: FontWeight.bold,
           color: Colors.white,
-        )),
+        )
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body:
         Padding(
