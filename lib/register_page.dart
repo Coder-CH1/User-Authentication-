@@ -11,6 +11,7 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   final ApiService _apiService = ApiService();
+  final GlobalKey<FormState> _form = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
@@ -60,160 +61,163 @@ class _RegisterPageState extends State<RegisterPage> {
           },
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 100),
-        child: Column(
-          children: [
-            const Text('Name', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
-            SizedBox(
-              width: 400,
-              height: 60,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: TextFormField(
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Name is required';
-                    }
-                    return null;
-                  },
-                  onSaved: (value) => _passController.text = value!,
-                  controller: _nameController,
-                  keyboardType: TextInputType.name,
-                  maxLines: null,
-                  expands: true,
-                  minLines: null,
-                  style: const TextStyle(
-                    fontSize: 18,
+      body: Form(
+        key: _form,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 100),
+          child: Column(
+            children: [
+              const Text('Name', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
+              SizedBox(
+                width: 400,
+                height: 60,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: TextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Name is required';
+                      }
+                      return null;
+                    },
+                    onSaved: (value) => _passController.text = value!,
+                    controller: _nameController,
+                    keyboardType: TextInputType.name,
+                    maxLines: null,
+                    expands: true,
+                    minLines: null,
+                    style: const TextStyle(
+                      fontSize: 18,
+                        color: Colors.black,
+                    ),
+                    decoration: const InputDecoration(
+                      hintText: 'Enter name',
+                      hintStyle: TextStyle(
+                        color: Colors.black12,
+                      ),
+                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
+                    ),
+                    onChanged: (value) {
+                    },
+                    onTap: () async {
+                    },
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              const Text('Email Address', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
+              SizedBox(
+                width: 400,
+                height: 60,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: TextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Email address is required';
+                      }
+                      return null;
+                    },
+                    onSaved: (value) => _passController.text = value!,
+                    controller: _emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    maxLines: null,
+                    expands: true,
+                    minLines: null,
+                    style: const TextStyle(
+                      fontSize: 18,
                       color: Colors.black,
-                  ),
-                  decoration: const InputDecoration(
-                    hintText: 'Enter name',
-                    hintStyle: TextStyle(
-                      color: Colors.black12,
                     ),
-                    border: OutlineInputBorder(),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey),
+                    decoration: const InputDecoration(
+                      hintText: 'Enter email address',
+                      hintStyle: TextStyle(
+                        color: Colors.black12,
+                      ),
+                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
                     ),
+                    onChanged: (value) {
+                    },
+                    onTap: () async {
+                    },
                   ),
-                  onChanged: (value) {
-                  },
-                  onTap: () async {
-                  },
                 ),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            const Text('Email Address', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
-            SizedBox(
-              width: 400,
-              height: 60,
-              child: Padding(
+              SizedBox(
+                height: 20,
+              ),
+              const Text('Password', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                width: 400,
+                height: 60,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: TextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Password is required';
+                      }
+                      return null;
+                    },
+                    onSaved: (value) => _passController.text = value!,
+                    controller: _passController,
+                    keyboardType: TextInputType.visiblePassword,
+                    obscureText: true,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      color: Colors.black,
+                    ),
+                    decoration: const InputDecoration(
+                      hintText: 'Password',
+                      hintStyle: TextStyle(
+                        color: Colors.black12,
+                      ),
+                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
+                    ),
+                    onChanged: (value) {
+                    },
+                    onTap: () async {
+                    },
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
-                child: TextFormField(
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Email address is required';
-                    }
-                    return null;
+                child: ElevatedButton(
+                  onPressed: () {
+                    _register();
                   },
-                  onSaved: (value) => _passController.text = value!,
-                  controller: _emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  maxLines: null,
-                  expands: true,
-                  minLines: null,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    color: Colors.black,
+                  child: const Text('Register', style:
+                TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.white,
+                ),
+                ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: const Size(400, 50),
                   ),
-                  decoration: const InputDecoration(
-                    hintText: 'Enter email address',
-                    hintStyle: TextStyle(
-                      color: Colors.black12,
-                    ),
-                    border: OutlineInputBorder(),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey),
-                    ),
-                  ),
-                  onChanged: (value) {
-                  },
-                  onTap: () async {
-                  },
                 ),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            const Text('Password', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
-            const SizedBox(
-              height: 10,
-            ),
-            SizedBox(
-              width: 400,
-              height: 60,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: TextFormField(
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Password is required';
-                    }
-                    return null;
-                  },
-                  onSaved: (value) => _passController.text = value!,
-                  controller: _passController,
-                  keyboardType: TextInputType.visiblePassword,
-                  obscureText: true,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    color: Colors.black,
-                  ),
-                  decoration: const InputDecoration(
-                    hintText: 'Password',
-                    hintStyle: TextStyle(
-                      color: Colors.black12,
-                    ),
-                    border: OutlineInputBorder(),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey),
-                    ),
-                  ),
-                  onChanged: (value) {
-                  },
-                  onTap: () async {
-                  },
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20),
-              child: ElevatedButton(
-                onPressed: () {
-                  _register();
-                },
-                child: const Text('Register', style:
-              TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w400,
-                color: Colors.white,
-              ),
-              ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  minimumSize: const Size(400, 50),
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

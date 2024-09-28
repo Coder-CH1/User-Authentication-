@@ -1,4 +1,3 @@
-import 'package:authentication/home_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -9,6 +8,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final GlobalKey<FormState> _form = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,107 +30,112 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
       body:
-        Padding(
-          padding: const EdgeInsets.only(top: 100),
-          child: Column(
-            children: [
-               Text('Email address', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
-              SizedBox(
-                width: 400,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-                  child: TextFormField(
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Password is required';
-                      }
-                      return null;
-                    },
-                    keyboardType: TextInputType.emailAddress,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      color: Colors.black,
-                    ),
-                    decoration: const InputDecoration(
-                      hintText: 'Enter email',
-                      hintStyle: TextStyle(
-                        color: Colors.black12,
+        Form(
+          key: _form,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 100),
+            child: Column(
+              children: [
+                 Text('Email address', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
+                SizedBox(
+                  width: 400,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+                    child: TextFormField(
+                      controller: _emailController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Email address is required';
+                        }
+                        return null;
+                      },
+                      keyboardType: TextInputType.emailAddress,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        color: Colors.black,
                       ),
-                      border: OutlineInputBorder(),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
+                      decoration: const InputDecoration(
+                        hintText: 'Enter email',
+                        hintStyle: TextStyle(
+                          color: Colors.black12,
+                        ),
+                        border: OutlineInputBorder(),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey),
+                        ),
                       ),
+                      onChanged: (value) {
+                      },
+                      onTap: () async {
+                      },
                     ),
-                    onChanged: (value) {
-                    },
-                    onTap: () async {
-                    },
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              const Text('Password', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
-              const SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                width: 400,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
-                  child: TextFormField(
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Password is required';
-                      }
-                      return null;
-                    },
-                    keyboardType: TextInputType.visiblePassword,
-                    maxLength: 20,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      color: Colors.black,
-                    ),
-                    decoration: const InputDecoration(
-                      hintText: 'Password',
-                      hintStyle: TextStyle(
-                        color: Colors.black12,
+                SizedBox(
+                  height: 20,
+                ),
+                const Text('Password', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  width: 400,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: TextFormField(
+                      controller: _passController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Password is required';
+                        }
+                        return null;
+                      },
+                      keyboardType: TextInputType.visiblePassword,
+                      maxLength: 20,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        color: Colors.black,
                       ),
-                      border: OutlineInputBorder(),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
+                      decoration: const InputDecoration(
+                        hintText: 'Password',
+                        hintStyle: TextStyle(
+                          color: Colors.black12,
+                        ),
+                        border: OutlineInputBorder(),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey),
+                        ),
                       ),
+                      onChanged: (value) {
+                      },
+                      readOnly: true,
+                      onTap: () async {
+                      },
                     ),
-                    onChanged: (value) {
-                    },
-                    readOnly: true,
-                    onTap: () async {
-                    },
                   ),
                 ),
-              ),
-                 Padding(
-                   padding: const EdgeInsets.only(left: 20, right: 20),
-                   child: ElevatedButton(
-                    onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage(),
+                   Padding(
+                     padding: const EdgeInsets.only(left: 20, right: 20),
+                     child: ElevatedButton(
+                      onPressed: (){
+                        // Navigator.push(context, MaterialPageRoute(builder: (context) => ,
+                        // ),
+                        // );
+                      }, child: const Text('Login', style:
+                  TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                  ),
+                  ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                        minimumSize: const Size(400, 50),
                       ),
-                      );
-                    }, child: const Text('Login', style:
-                TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white,
-                ),
-                ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
-                      minimumSize: const Size(400, 50),
-                    ),
-                ),
-                 ),
-            ],
+                  ),
+                   ),
+              ],
+            ),
           ),
         )
     );
