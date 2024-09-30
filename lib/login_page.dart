@@ -20,15 +20,7 @@ class _LoginPageState extends State<LoginPage> {
 
       if (email == 'test@example.com' && pass == 'password') {
         Navigator.pushReplacementNamed(context, '/home');
-      } else {
-        setState(() {
-          errorMessage = 'Invalid email or password';
-        });
       }
-    } else {
-      setState(() {
-        errorMessage = 'Fill all fields properly';
-      });
     }
   }
 
