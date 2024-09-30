@@ -16,7 +16,13 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
   String errorMessage = '';
+
   void _register() async {
+    if (_form.currentState!.validate()) {
+      setState(() {
+        errorMessage = 'Fill all fields properly';
+      });
+    }
       final name = _nameController.text.trim();
       final email = _emailController.text.trim();
       final pass =  _passController.text.trim();

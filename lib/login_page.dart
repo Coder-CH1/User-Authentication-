@@ -11,6 +11,8 @@ class _LoginPageState extends State<LoginPage> {
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
+  String errorMessage = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
