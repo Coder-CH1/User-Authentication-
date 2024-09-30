@@ -13,6 +13,25 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _passController = TextEditingController();
   String errorMessage = '';
 
+  void _login() async {
+    if (_form.currentState!.validate()) {
+      final email = _emailController.text.trim();
+      final pass = _passController.text.trim();
+
+      if (email == 'test@example.com' && pass == 'password') {
+        Navigator.pushReplacementNamed(context, '/home');
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Invalid email or password')),
+        );
+      }
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Fill all fields properly')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,9 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                      padding: const EdgeInsets.only(left: 20, right: 20),
                      child: ElevatedButton(
                       onPressed: (){
-                        // Navigator.push(context, MaterialPageRoute(builder: (context) => ,
-                        // ),
-                        // );
+                        _login();
                       }, child: const Text('Login', style:
                   TextStyle(
                       fontSize: 20,
