@@ -21,14 +21,14 @@ class _LoginPageState extends State<LoginPage> {
       if (email == 'test@example.com' && pass == 'password') {
         Navigator.pushReplacementNamed(context, '/home');
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Invalid email or password')),
-        );
+        setState(() {
+          errorMessage = 'Invalid email or password';
+        });
       }
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Fill all fields properly')),
-      );
+      setState(() {
+        errorMessage = 'Fill all fields properly';
+      });
     }
   }
 
@@ -135,6 +135,9 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
+                   SizedBox(
+                     height: 20,
+                   ),
                    Padding(
                      padding: const EdgeInsets.only(left: 20, right: 20),
                      child: ElevatedButton(
