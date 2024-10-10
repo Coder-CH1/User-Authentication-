@@ -1,4 +1,3 @@
-import 'package:authentication/service.dart';
 import 'package:flutter/material.dart';
 
 
@@ -10,7 +9,6 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  final ApiService _apiService = ApiService();
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
@@ -33,14 +31,8 @@ class _RegisterPageState extends State<RegisterPage> {
         return;
       }
       try {
-  final response = await _apiService.register(
-      name,
-      email,
-      pass
-  );
-  print('');
   ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(content: Text('Registration successful'))
+    const SnackBar(content: Text('Registration successful'))
   );
   Navigator.pushReplacementNamed(context, '/login');
     } catch (e) {
@@ -62,7 +54,7 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -114,7 +106,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               const Text('Email Address', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
@@ -157,7 +149,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               const Text('Password', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
@@ -201,7 +193,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Padding(
@@ -210,6 +202,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   onPressed: () {
                     _register();
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: const Size(400, 50),
+                  ),
                   child: const Text('Register', style:
                 TextStyle(
                   fontSize: 20,
@@ -217,10 +213,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   color: Colors.white,
                 ),
                 ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    minimumSize: const Size(400, 50),
-                  ),
                 ),
               ),
             ],

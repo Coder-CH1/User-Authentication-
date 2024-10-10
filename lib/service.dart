@@ -24,7 +24,6 @@ class ApiService {
         throw Exception('Registration failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('registration failed');
       throw Exception('registration error: $e');
 
     }

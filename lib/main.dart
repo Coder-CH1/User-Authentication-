@@ -1,6 +1,5 @@
 import 'package:authentication/register_page.dart';
 import 'package:flutter/material.dart';
-
 import 'login_page.dart';
 
 void main() {
@@ -21,9 +20,9 @@ class MyApp extends StatelessWidget {
       ),
         initialRoute: '/',
         routes: {
-          '/': (context) => UserAuthenticationPage(),
-          '/register': (context) => RegisterPage(),
-          '/login': (context) => LoginPage(),
+          '/': (context) => const UserAuthenticationPage(),
+          '/register': (context) => const RegisterPage(),
+          '/login': (context) => const LoginPage(),
         },
     );
   }
@@ -37,7 +36,7 @@ class UserAuthenticationPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
-        title: Text('User Authentication', style: TextStyle(
+        title: const Text('User Authentication', style: TextStyle(
           fontSize: 25,
           fontWeight: FontWeight.bold,
           color: Colors.white,
@@ -52,20 +51,20 @@ class UserAuthenticationPage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/register');
-                }, child: const Text('Register', style:
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  minimumSize: const Size(300, 50),
+                ), child: const Text('Register', style:
               TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w400,
                 color: Colors.white,
               ),
               ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  minimumSize: const Size(300, 50),
-                ),
               ),
             ),
-        SizedBox(
+        const SizedBox(
           height: 50,
         ),
             Padding(
@@ -73,17 +72,17 @@ class UserAuthenticationPage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/login');
-                }, child: const Text('Login', style:
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  minimumSize: const Size(300, 50),
+                ), child: const Text('Login', style:
               TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w400,
                 color: Colors.white,
               ),
               ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  minimumSize: const Size(300, 50),
-                ),
               ),
             ),
           ],

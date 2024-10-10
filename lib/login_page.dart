@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
         )
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -49,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
             padding: const EdgeInsets.only(top: 100),
             child: Column(
               children: [
-                 Text('Email address', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
+                 const Text('Email address', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
                 SizedBox(
                   width: 400,
                   child: Padding(
@@ -84,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 const Text('Password', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),
@@ -127,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                   SizedBox(
+                   const SizedBox(
                      height: 20,
                    ),
                    Padding(
@@ -135,17 +135,17 @@ class _LoginPageState extends State<LoginPage> {
                      child: ElevatedButton(
                       onPressed: (){
                         _login();
-                      }, child: const Text('Login', style:
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                        minimumSize: const Size(400, 50),
+                      ), child: const Text('Login', style:
                   TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w400,
                       color: Colors.white,
                   ),
                   ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
-                        minimumSize: const Size(400, 50),
-                      ),
                   ),
                    ),
               ],
